@@ -1,32 +1,32 @@
-WATCH OUT! DO NOT LOOK HERE UNLESS YOU ARE SURE YOU WANT TO SEE THE SOLUTION!
-//=========================================================================//
-WATCH OUT! DO NOT LOOK HERE UNLESS YOU ARE SURE YOU WANT TO SEE THE SOLUTION!
-//=========================================================================//
-WATCH OUT! DO NOT LOOK HERE UNLESS YOU ARE SURE YOU WANT TO SEE THE SOLUTION!
-//=========================================================================//
-WATCH OUT! DO NOT LOOK HERE UNLESS YOU ARE SURE YOU WANT TO SEE THE SOLUTION!
-//=========================================================================//
-WATCH OUT! DO NOT LOOK HERE UNLESS YOU ARE SURE YOU WANT TO SEE THE SOLUTION!
-//=========================================================================//
-WATCH OUT! DO NOT LOOK HERE UNLESS YOU ARE SURE YOU WANT TO SEE THE SOLUTION!
-//=========================================================================//
-WATCH OUT! DO NOT LOOK HERE UNLESS YOU ARE SURE YOU WANT TO SEE THE SOLUTION!
-//=========================================================================//
-WATCH OUT! DO NOT LOOK HERE UNLESS YOU ARE SURE YOU WANT TO SEE THE SOLUTION!
-//=========================================================================//
-WATCH OUT! DO NOT LOOK HERE UNLESS YOU ARE SURE YOU WANT TO SEE THE SOLUTION!
-//=========================================================================//
-WATCH OUT! DO NOT LOOK HERE UNLESS YOU ARE SURE YOU WANT TO SEE THE SOLUTION!
-//=========================================================================//
-WATCH OUT! DO NOT LOOK HERE UNLESS YOU ARE SURE YOU WANT TO SEE THE SOLUTION!
-//=========================================================================//
-WATCH OUT! DO NOT LOOK HERE UNLESS YOU ARE SURE YOU WANT TO SEE THE SOLUTION!
-//=========================================================================//
+// WATCH OUT! DO NOT LOOK HERE UNLESS YOU ARE SURE YOU WANT TO SEE THE SOLUTION!
+// //=========================================================================//
+// WATCH OUT! DO NOT LOOK HERE UNLESS YOU ARE SURE YOU WANT TO SEE THE SOLUTION!
+// //=========================================================================//
+// WATCH OUT! DO NOT LOOK HERE UNLESS YOU ARE SURE YOU WANT TO SEE THE SOLUTION!
+// //=========================================================================//
+// WATCH OUT! DO NOT LOOK HERE UNLESS YOU ARE SURE YOU WANT TO SEE THE SOLUTION!
+// //=========================================================================//
+// WATCH OUT! DO NOT LOOK HERE UNLESS YOU ARE SURE YOU WANT TO SEE THE SOLUTION!
+// //=========================================================================//
+// WATCH OUT! DO NOT LOOK HERE UNLESS YOU ARE SURE YOU WANT TO SEE THE SOLUTION!
+// //=========================================================================//
+// WATCH OUT! DO NOT LOOK HERE UNLESS YOU ARE SURE YOU WANT TO SEE THE SOLUTION!
+// //=========================================================================//
+// WATCH OUT! DO NOT LOOK HERE UNLESS YOU ARE SURE YOU WANT TO SEE THE SOLUTION!
+// //=========================================================================//
+// WATCH OUT! DO NOT LOOK HERE UNLESS YOU ARE SURE YOU WANT TO SEE THE SOLUTION!
+// //=========================================================================//
+// WATCH OUT! DO NOT LOOK HERE UNLESS YOU ARE SURE YOU WANT TO SEE THE SOLUTION!
+// //=========================================================================//
+// WATCH OUT! DO NOT LOOK HERE UNLESS YOU ARE SURE YOU WANT TO SEE THE SOLUTION!
+// //=========================================================================//
+// WATCH OUT! DO NOT LOOK HERE UNLESS YOU ARE SURE YOU WANT TO SEE THE SOLUTION!
+// //=========================================================================//
 
-function scrollToSee(timeSpent, effortInput, honor){
-	if(isReasonable(timeSpent) && isValiant(effortInput) && !isRelevant(honor)){
-		//Alright, scroll down to see the answers
-	}
+function scrollToSee(timeSpent, effortInput, honor) {
+    if (isReasonable(timeSpent) && isValiant(effortInput) && !isRelevant(honor)) {
+        //Alright, scroll down to see the answers
+    }
 }
 
 //Book Model
@@ -37,12 +37,12 @@ function scrollToSee(timeSpent, effortInput, honor){
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var bookSchema = new Schema({ 
-  title: String,
-  author: String,
-  pages: Number,
-  genres: [String],
-  rating: String
+var bookSchema = new Schema({
+    title: String,
+    author: String,
+    pages: Number,
+    genres: [String],
+    rating: String
 });
 
 var Book = mongoose.model("BookModel", bookSchema);
@@ -63,14 +63,14 @@ module.exports = Book;
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
-var personSchema = new Schema({ 
-	hair: String,
-	eyes: String,
-	weight: Number,
-	height: Number,
-	salary: Number,
-	numKids: Number,
-	kids: []
+var personSchema = new Schema({
+    hair: String,
+    eyes: String,
+    weight: Number,
+    height: Number,
+    salary: Number,
+    numKids: Number,
+    kids: []
 });
 
 var Person = mongoose.model("PersonModel", personSchema);
@@ -88,8 +88,8 @@ module.exports = Person;
 //======================================================
 //======================================================
 //======================================================
-Book.find(({pages:{"$lt":500, "$gt":200}}), function(err, books){
-	
+Book.find(({ pages: { "$lt": 500, "$gt": 200 } }), function(err, books) {
+
 })
 
 
@@ -104,7 +104,7 @@ Book.find(({pages:{"$lt":500, "$gt":200}}), function(err, books){
 //======================================================
 //======================================================
 //======================================================
-Book.find({rating:{"$lt":5}}).sort({author:-1}).exec( function(err, books) {
+Book.find({ rating: { "$lt": 5 } }).sort({ author: -1 }).exec(function(err, books) {
 
 });
 
@@ -120,7 +120,7 @@ Book.find({rating:{"$lt":5}}).sort({author:-1}).exec( function(err, books) {
 //======================================================
 //======================================================
 //======================================================
-Book.find({genres:"Fiction"}).skip(2).limit(3).exec(function(err, books){
+Book.find({ genres: "Fiction" }).skip(2).limit(3).exec(function(err, books) {
 
 });
 
@@ -136,8 +136,8 @@ Book.find({genres:"Fiction"}).skip(2).limit(3).exec(function(err, books){
 //======================================================
 //======================================================
 //======================================================
-Person.find((	{ height:{"$gt":180}, salary:{"$gt":30000}	}), function(err, people){
-	
+Person.find(({ height: { "$gt": 180 }, salary: { "$gt": 30000 } }), function(err, people) {
+
 })
 
 
@@ -152,7 +152,7 @@ Person.find((	{ height:{"$gt":180}, salary:{"$gt":30000}	}), function(err, peopl
 //======================================================
 //======================================================
 //======================================================
-Person.find( { $or:[ {height:{"$gt":180}}, {salary:{"$gt":30000}}]}, function(err,people){
+Person.find({ $or: [{ height: { "$gt": 180 } }, { salary: { "$gt": 30000 } }] }, function(err, people) {
 
 });
 
@@ -167,11 +167,11 @@ Person.find( { $or:[ {height:{"$gt":180}}, {salary:{"$gt":30000}}]}, function(er
 //======================================================
 //======================================================
 Person.find().and([
-		{ $or: [{hair:"grey"}, {eyes:"grey"}] },
-		{	weight:{"$lt": 70}	}
-	]).exec(function(err, people){
-		console.log(people)
-	})
+    { $or: [{ hair: "grey" }, { eyes: "grey" }] },
+    { weight: { "$lt": 70 } }
+]).exec(function(err, people) {
+    console.log(people)
+})
 
 
 
@@ -184,13 +184,13 @@ Person.find().and([
 //======================================================
 //======================================================
 //======================================================
-Person.find({kids:{$elemMatch:{hair:"grey"}}}).exec(function(err,people){
-	
-	//this is just to show you that this works
-	for(p in people){
-		var person = people[p];
-		console.log("Person", p,"has kids:\n",person.kids);
-	}
+Person.find({ kids: { $elemMatch: { hair: "grey" } } }).exec(function(err, people) {
+
+    //this is just to show you that this works
+    for (p in people) {
+        var person = people[p];
+        console.log("Person", p, "has kids:\n", person.kids);
+    }
 })
 
 
@@ -206,12 +206,12 @@ Person.find({kids:{$elemMatch:{hair:"grey"}}}).exec(function(err,people){
 //======================================================
 //======================================================
 Person.find().and([
-		{weight: {"$gt":100}},
-		{kids:{$elemMatch:{weight: {"$gt":100}}}}
-	]).exec(function(err, people){
-		//this is just to show you that this works
-		for(p in people){
-			var person = people[p];
-			console.log("\nPerson", p,"has weight", person.weight," and kids:\n",person.kids);
-		}		
-	})
+    { weight: { "$gt": 100 } },
+    { kids: { $elemMatch: { weight: { "$gt": 100 } } } }
+]).exec(function(err, people) {
+    //this is just to show you that this works
+    for (p in people) {
+        var person = people[p];
+        console.log("\nPerson", p, "has weight", person.weight, " and kids:\n", person.kids);
+    }
+})
